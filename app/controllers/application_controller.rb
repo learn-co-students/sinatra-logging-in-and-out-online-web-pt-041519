@@ -23,8 +23,8 @@ class ApplicationController < Sinatra::Base
 
   # Display data if user exists. Else display error page. 
   get '/account' do
-    @user = Helpers.current_user(session)
-    if @user.nil?
+    @current_user = Helpers.current_user(session)
+    if @current_user.nil?
       erb :error
     else 
       erb :account
