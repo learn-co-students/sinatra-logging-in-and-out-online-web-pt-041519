@@ -20,16 +20,16 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/account' do
-     @user = Helpers.is_logged_in?(session)
-     if @user == true
-       erb :account
+     @user = Helpers.is_logged_in?(session) #check to see if user is logged in
+     if @user == true #if they are then
+       erb :account  #show their account
      else
-       erb :error
+       erb :error      #else show error page.
      end
    end
 
   get '/logout' do
-      session.clear
+      session.clear  #clear hash
       redirect to '/'
   end
 
